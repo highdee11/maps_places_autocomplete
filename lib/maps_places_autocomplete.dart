@@ -176,6 +176,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
       print("_lastText: $_lastText");
       _suggestions = await _addressService.search(text);
       setState(() {print("refreshed");});
+      showOverlay();
     }
   }
 
