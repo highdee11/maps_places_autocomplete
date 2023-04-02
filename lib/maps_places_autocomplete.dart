@@ -42,6 +42,8 @@ class MapsPlacesAutocomplete extends StatefulWidget {
 
   //in witch language the results are being returned
   final String? language;
+  
+  final TextStyle textStyle;
 
   const MapsPlacesAutocomplete(
       {Key? key,
@@ -55,7 +57,9 @@ class MapsPlacesAutocomplete extends StatefulWidget {
       this.overlayOffset = 4,
       this.showGoogleTradeMark = true,
       this.componentCountry,
-      this.language})
+      this.language,
+      this.textStyle = TextStyle(fontSize: 14)
+      })
       : super(key: key);
 
   @override
@@ -193,7 +197,8 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
             focusNode: focusNode,
             controller: _controller,
             onChanged: (text) async => await searchAddress(text),
-            decoration: getInputDecoration()
+            decoration: getInputDecoration(),
+            style: textStyle,
           ),
         ],
       ),
