@@ -168,7 +168,10 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   Future<void> searchAddress(String text) async {
     if (text != _lastText && text != "") {
       _lastText = text;
-      _suggestions = await _addressService.search(text);
+      List<Suggestion> suggestions = await _addressService.search(text);
+      setState(() {
+        _suggestions = suggestions;
+      });
     }
   }
 
