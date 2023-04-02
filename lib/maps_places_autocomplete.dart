@@ -58,7 +58,7 @@ class MapsPlacesAutocomplete extends StatefulWidget {
       this.showGoogleTradeMark = true,
       this.componentCountry,
       this.language,
-      this.textStyle = TextStyle(fontSize: 14)
+      this.textStyle = const TextStyle(fontSize: 14)
       })
       : super(key: key);
 
