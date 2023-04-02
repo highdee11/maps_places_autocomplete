@@ -172,6 +172,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
       setState(() {
         _suggestions = suggestions;
       });
+      print("Suggestion arrived");
     }
   }
 
