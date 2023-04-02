@@ -119,6 +119,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
     entry?.remove();
     entry = null;
     focusNode.unfocus();
+    print("hidden");
   }
 
   void _clearText() {
