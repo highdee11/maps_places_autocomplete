@@ -84,9 +84,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
         widget.componentCountry, widget.language);
 
     focusNode.addListener(() {
-      print("Listener");
       if (focusNode.hasFocus) {
-        print("Has focus");
         showOverlay();
       } else {
         hideOverlay();
@@ -101,7 +99,6 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   }
 
   void showOverlay() {
-    print("showOverlay");
     final overlay = Overlay.of(context)!;
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
@@ -116,7 +113,6 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
         )
       );
     overlay.insert(entry!);
-    print("showOverlay DONE");
   }
 
   void hideOverlay() {
@@ -133,7 +129,6 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   }
 
   List<Widget> buildList() {
-    print(_suggestions.length);
     List<Widget> list = [];
     for (int i=0; i < _suggestions.length; i++) {
       Suggestion s = _suggestions[i];
@@ -172,10 +167,8 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   String _lastText = "";
   Future<void> searchAddress(String text) async {
     if (text != _lastText && text != "") {
-      _lastText = text;
-      print("_lastText: $_lastText");
-      _suggestions = await _addressService.search(text);
-      setState(() {print("refreshed");});
+      _lastText = text; 
+      _suggestions = await _addressService.search(text); 
       showOverlay();
     }
   }
