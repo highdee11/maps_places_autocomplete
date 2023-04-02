@@ -11,7 +11,7 @@ class MapsPlacesAutocomplete extends StatefulWidget {
 
   //callback triggered when a item is selected
   final void Function(Place place) onSuggestionClick;
-  
+
   //your maps api key, must not be null
   final String mapsApiKey;
 
@@ -110,12 +110,13 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
           width: size.width,
           child: CompositedTransformFollower(
               link: layerLink,
-              showWhenUnlinked: false,
+              showWhenUnlinked: true,
               offset: Offset(0, size.height + widget.overlayOffset),
               child: buildOverlay()),
         )
       );
     overlay.insert(entry!);
+    print("showOverlay DONE");
   }
 
   void hideOverlay() {
@@ -132,6 +133,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   }
 
   List<Widget> buildList() {
+    print(_suggestions.length);
     List<Widget> list = [];
     for (int i=0; i < _suggestions.length; i++) {
       Suggestion s = _suggestions[i];
@@ -171,6 +173,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   Future<void> searchAddress(String text) async {
     if (text != _lastText && text != "") {
       _lastText = text;
+      print("_lastText: $_lastText");
       _suggestions = await _addressService.search(text);
     }
   }
