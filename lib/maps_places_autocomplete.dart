@@ -118,6 +118,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   void hideOverlay() {
     entry?.remove();
     entry = null;
+    focusNode.unfocus();
   }
 
   void _clearText() {
