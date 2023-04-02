@@ -99,6 +99,8 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   }
 
   void showOverlay() {
+    entry?.remove();
+    
     final overlay = Overlay.of(context)!;
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
@@ -118,8 +120,6 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   void hideOverlay() {
     entry?.remove();
     entry = null;
-    focusNode.unfocus();
-    print("hidden");
   }
 
   void _clearText() {
