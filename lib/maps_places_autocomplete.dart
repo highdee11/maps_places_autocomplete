@@ -42,7 +42,7 @@ class MapsPlacesAutocomplete extends StatefulWidget {
 
   //in witch language the results are being returned
   final String? language;
-  
+
   final TextStyle textStyle;
 
   const MapsPlacesAutocomplete(
@@ -198,7 +198,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
             controller: _controller,
             onChanged: (text) async => await searchAddress(text),
             decoration: getInputDecoration(),
-            style: textStyle,
+            style: widget.textStyle,
           ),
         ],
       ),
