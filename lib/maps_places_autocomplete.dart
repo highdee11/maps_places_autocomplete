@@ -84,7 +84,9 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
         widget.componentCountry, widget.language);
 
     focusNode.addListener(() {
+      print("Listener");
       if (focusNode.hasFocus) {
+        print("Has focus");
         showOverlay();
       } else {
         hideOverlay();
@@ -168,7 +170,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   Future<void> searchAddress(String text) async {
     if (text != _lastText && text != "") {
       _lastText = text;
-      _suggestions = await _addressService.search(text); 
+      _suggestions = await _addressService.search(text);
     }
   }
 
