@@ -101,6 +101,7 @@ class _MapsPlacesAutocomplete extends State<MapsPlacesAutocomplete> {
   }
 
   void showOverlay() {
+    print("showOverlay");
     final overlay = Overlay.of(context)!;
     final RenderBox renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
